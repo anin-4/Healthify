@@ -1,0 +1,14 @@
+package com.example.calorietracker.ui.navigation
+
+sealed class Screen(val route:String){
+
+    object FirstPage:Screen("FirstPage")
+    object GenderPage:Screen("genderPage")
+    object AgeScreen:Screen("ageScreen")
+    object HeightScreen:Screen("heightScreen")
+    object ActivityLevelScreen:Screen("activityLevelScreen")
+    object WeightChoiceScreen:Screen("WeightChoiceScreen")
+    object Home:Screen("home")
+
+
+}
