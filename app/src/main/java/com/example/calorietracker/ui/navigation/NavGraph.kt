@@ -4,8 +4,9 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import com.example.calorietracker.ui.screens.onboardings.*
+import com.example.calorietracker.ui.screens.onboardings.age.AgeScreen
+import com.example.calorietracker.ui.screens.onboardings.gender.GenderScreen
 import com.example.calorietracker.ui.viewModels.NavigationViewModel
 
 @Composable

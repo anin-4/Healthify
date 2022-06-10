@@ -1,4 +1,4 @@
-package com.example.calorietracker.ui.screens.onboardings
+package com.example.calorietracker.ui.screens.onboardings.age
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -8,12 +8,15 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.example.calorietracker.ui.navigation.Screen
+import com.example.calorietracker.ui.screens.onboardings.UnitTextField
 
 @Composable
 fun AgeScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: AgeViewModel = hiltViewModel()
 
 ) {
 
@@ -37,12 +40,21 @@ fun AgeScreen(
             Spacer(modifier = Modifier.height(12.dp))
             
             
-            UnitTextField(value = "20", onValueChange = {} , unit = "yrs" )
+            UnitTextField(
+                value = viewModel.age.value,
+                onValueChange = {
+                    viewModel.onAgeChange(it)
+                },
+                unit = "yrs" )
 
 
 
         }
-        Button(onClick ={navController.navigate(Screen.HeightScreen.route)},
+        Button(
+            onClick ={
+            viewModel.saveToPreference()
+            navController.navigate(Screen.HeightScreen.route)
+                        },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp)

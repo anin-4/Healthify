@@ -1,4 +1,4 @@
-package com.example.calorietracker.ui.screens.onboardings
+package com.example.calorietracker.ui.screens.onboardings.gender
 
 
 import androidx.compose.foundation.layout.*
@@ -10,12 +10,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.calorietracker.domain.model.Gender
 import com.example.calorietracker.ui.navigation.Screen
+import com.example.calorietracker.ui.screens.onboardings.SelectableButton
 
 @Composable
 fun GenderScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: GenderViewModel = hiltViewModel()
 ) {
     Box(
         modifier = Modifier.fillMaxSize(),
@@ -41,8 +45,8 @@ fun GenderScreen(
         Row{
             SelectableButton(
                 text = "Male",
-                onClick = {  },
-                isSelected = true,
+                onClick = { viewModel.onGenderClick(Gender.Male)  },
+                isSelected = viewModel.selectedGender.value is Gender.Male,
                 selectedTextColor = White,
                 color = MaterialTheme.colors.primaryVariant
             )
@@ -51,19 +55,21 @@ fun GenderScreen(
 
             SelectableButton(
                 text = "Female",
-                onClick = {  },
-                isSelected = false,
+                onClick = { viewModel.onGenderClick(Gender.Female)},
+                isSelected = viewModel.selectedGender.value is Gender.Female,
                 selectedTextColor = White,
                 color = MaterialTheme.colors.primaryVariant
             )
 
         }
 
-      
-
     }
         
-        Button(onClick ={navController.navigate(Screen.AgeScreen.route)},
+        Button(
+            onClick ={
+            viewModel.saveToPreference()
+            navController.navigate(Screen.AgeScreen.route)
+                     },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp)
