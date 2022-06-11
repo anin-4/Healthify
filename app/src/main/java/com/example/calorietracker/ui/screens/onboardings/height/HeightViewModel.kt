@@ -1,4 +1,5 @@
-package com.example.calorietracker.ui.screens.onboardings.age
+package com.example.calorietracker.ui.screens.onboardings.height
+
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
@@ -14,37 +15,34 @@ import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class AgeViewModel @Inject constructor(
-    private val dataStore: CalorieTrackerDataStore
+class HeightViewModel @Inject constructor(
+    private val dataStorePreferences:CalorieTrackerDataStore
 ):ViewModel() {
-
-    private val filterOutDigits = FilterOutDigits()
-
-    var age:MutableState<String> = mutableStateOf("20")
-    private set
 
     private val _uiEvents = Channel<UIEvents>()
     val uiEvents = _uiEvents.receiveAsFlow()
 
+    private var _height: MutableState<String> = mutableStateOf("180")
+    val height = _height
 
-    fun onAgeChange(age:String){
-        if(age.length<=3){
-            this.age.value= filterOutDigits(age)
+    fun onHeightChange(height:String){
+        if(height.length in 2..3){
+            this._height.value = FilterOutDigits().invoke(height)
         }
     }
 
-    fun saveToPreference(){
+    fun onNextClick(){
         viewModelScope.launch {
-            val ageNumber = age.value.toIntOrNull() ?: kotlin.run {
+            val heightNum = _height.value.toIntOrNull() ?: kotlin.run {
                 _uiEvents.send(
-                    UIEvents.ShowSnackBar(
-                        "Age cannot be empty"
-                    )
+                    UIEvents.ShowSnackBar("Height Cannot be null")
                 )
-                age.value = ""
+                _height.value=""
                 return@launch
             }
-            dataStore.saveAge(ageNumber)
+
+            dataStorePreferences.saveHeight(heightNum)
         }
     }
+
 }

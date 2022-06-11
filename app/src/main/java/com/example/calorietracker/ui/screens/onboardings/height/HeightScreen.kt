@@ -1,4 +1,4 @@
-package com.example.calorietracker.ui.screens.onboardings.age
+package com.example.calorietracker.ui.screens.onboardings.height
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -18,62 +18,61 @@ import com.example.calorietracker.utils.UIEvents
 import kotlinx.coroutines.flow.collect
 
 @Composable
-fun AgeScreen(
-    navController: NavController,
-    viewModel: AgeViewModel = hiltViewModel(),
-    scaffoldState: ScaffoldState
-
+fun HeightScreen(
+        navController: NavController,
+        viewModel: HeightViewModel = hiltViewModel(),
+        scaffoldState: ScaffoldState
 ) {
-
-    LaunchedEffect(key1 = true) {
-        viewModel.uiEvents.collect { event ->
-            when (event) {
-                is UIEvents.ShowSnackBar -> {
-                    scaffoldState.snackbarHostState.showSnackbar(
-                        message = event.msg
-                    )
-                }
-                else -> Unit
-            }
-        }
-    }
 
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
             .fillMaxSize()
             .padding(10.dp),
-    ){
+    ) {
+        LaunchedEffect(key1 = true) {
+            viewModel.uiEvents.collect { event ->
+                when (event) {
+                    is UIEvents.ShowSnackBar -> {
+                        scaffoldState.snackbarHostState.showSnackbar(
+                            message = event.msg
+                        )
+                    }
+                }
+            }
+        }
+
         Column(
             modifier = Modifier.fillMaxSize(),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            
-            Text(text = "What is your age?",
-                style = MaterialTheme.typography.h1,
-                
-            )
-            
-            Spacer(modifier = Modifier.height(12.dp))
-            
-            
-            UnitTextField(
-                value = viewModel.age.value,
-                onValueChange = {
-                    viewModel.onAgeChange(it)
-                },
-                unit = "yrs" )
 
+            Text(
+                text = "What is your height?",
+                style = MaterialTheme.typography.h1,
+
+                )
+
+            Spacer(modifier = Modifier.height(12.dp))
+
+
+            UnitTextField(
+                value = viewModel.height.value,
+                onValueChange = {
+                    viewModel.onHeightChange(it)
+                },
+                unit = "cm"
+            )
 
 
         }
         Button(
-            onClick ={
-            viewModel.saveToPreference()
-                if(viewModel.age.value!="")
-            navController.navigate(Screen.HeightScreen.route)
-                        },
+            onClick = {
+                viewModel.onNextClick()
+                if (viewModel.height.value != "")
+                    navController.navigate(Screen.ActivityLevelScreen.route)
+            },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp)

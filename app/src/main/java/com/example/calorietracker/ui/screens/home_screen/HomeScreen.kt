@@ -1,4 +1,4 @@
-package com.example.calorietracker.ui.screens.onboardings
+package com.example.calorietracker.ui.screens.home_screen
 
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text

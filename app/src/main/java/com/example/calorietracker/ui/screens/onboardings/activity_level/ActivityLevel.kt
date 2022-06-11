@@ -1,4 +1,4 @@
-package com.example.calorietracker.ui.screens.onboardings
+package com.example.calorietracker.ui.screens.onboardings.activity_level
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -9,16 +9,22 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.example.calorietracker.domain.model.ActivityLevel
 import com.example.calorietracker.ui.navigation.Screen
+import com.example.calorietracker.ui.screens.onboardings.SelectableButton
 
 @Composable
 fun ActivityLevelScreen(
-    navController: NavController
+    navController: NavController,
+    viewModel: ActivityLevelViewModel = hiltViewModel()
 ) {
 
     Box(
-        modifier = Modifier.fillMaxSize().padding(10.dp),
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(10.dp),
         contentAlignment = Alignment.Center
     ){
         Column(
@@ -41,8 +47,8 @@ fun ActivityLevelScreen(
             Row{
                 SelectableButton(
                     text = "Low",
-                    onClick = {  },
-                    isSelected = false,
+                    onClick = { viewModel.onActivityLevelSelected(ActivityLevel.Low) },
+                    isSelected = viewModel.selectedActivityLevel.value is ActivityLevel.Low,
                     selectedTextColor = Color.White,
                     color = MaterialTheme.colors.primaryVariant
                 )
@@ -51,8 +57,8 @@ fun ActivityLevelScreen(
 
                 SelectableButton(
                     text = "Medium",
-                    onClick = {  },
-                    isSelected = true,
+                    onClick = {  viewModel.onActivityLevelSelected(ActivityLevel.Medium)},
+                    isSelected = viewModel.selectedActivityLevel.value is ActivityLevel.Medium,
                     selectedTextColor = Color.White,
                     color = MaterialTheme.colors.primaryVariant
                 )
@@ -61,8 +67,8 @@ fun ActivityLevelScreen(
 
                 SelectableButton(
                     text = "High",
-                    onClick = {  },
-                    isSelected = false,
+                    onClick = { viewModel.onActivityLevelSelected(ActivityLevel.High) },
+                    isSelected = viewModel.selectedActivityLevel.value is ActivityLevel.High,
                     selectedTextColor = Color.White,
                     color = MaterialTheme.colors.primaryVariant
                 )
@@ -74,7 +80,10 @@ fun ActivityLevelScreen(
 
         }
 
-        Button(onClick ={navController.navigate(Screen.WeightChoiceScreen.route)},
+        Button(onClick ={
+            viewModel.onNextClick()
+            navController.navigate(Screen.WeightChoiceScreen.route)
+                        },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp)

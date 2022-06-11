@@ -4,6 +4,10 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.viewModels
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.material.Scaffold
+import androidx.compose.material.rememberScaffoldState
+import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.calorietracker.ui.navigation.SetUpNavGraph
 import com.example.calorietracker.ui.theme.CalorieTrackerTheme
@@ -23,11 +27,18 @@ class MainActivity : ComponentActivity() {
             CalorieTrackerTheme {
                 val screen = navViewModel.startScreen
                 val navController = rememberNavController()
-                SetUpNavGraph(
-                    navController = navController,
-                    startDestination =screen.value,
-                    navViewModel
-                )
+                val scaffoldState = rememberScaffoldState()
+                Scaffold(
+                    modifier = Modifier.fillMaxSize(),
+                    scaffoldState = scaffoldState
+                ) {
+                    SetUpNavGraph(
+                        navController = navController,
+                        startDestination =screen.value,
+                        scaffoldState = scaffoldState
+                    )
+                }
+
             }
         }
     }
