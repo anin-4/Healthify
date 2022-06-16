@@ -82,7 +82,7 @@ fun ActivityLevelScreen(
 
         Button(onClick ={
             viewModel.onNextClick()
-            navController.navigate(Screen.WeightChoiceScreen.route)
+            navController.navigate(Screen.NutrientChoiceScreen.route)
                         },
             modifier = Modifier
                 .align(Alignment.BottomEnd)

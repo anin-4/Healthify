@@ -7,8 +7,10 @@ sealed class Screen(val route:String){
     object AgeScreen:Screen("ageScreen")
     object HeightScreen:Screen("heightScreen")
     object ActivityLevelScreen:Screen("activityLevelScreen")
+    object NutrientChoiceScreen:Screen("nutrientChoiceScreen")
     object WeightChoiceScreen:Screen("WeightChoiceScreen")
     object Home:Screen("home")
+
 
 
 }
