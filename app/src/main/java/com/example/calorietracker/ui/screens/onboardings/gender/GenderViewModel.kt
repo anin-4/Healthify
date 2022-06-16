@@ -4,9 +4,8 @@ import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.calorietracker.data.datastore.CalorieTrackerDataStore
-import com.example.calorietracker.domain.model.Gender
+import com.example.calorietracker.domain.on_boarding.model.Gender
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

@@ -11,7 +11,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.calorietracker.domain.model.ActivityLevel
+import com.example.calorietracker.domain.on_boarding.model.ActivityLevel
 import com.example.calorietracker.ui.navigation.Screen
 import com.example.calorietracker.ui.screens.onboardings.SelectableButton
 

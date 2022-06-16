@@ -1,4 +1,4 @@
-package com.example.calorietracker.domain.model
+package com.example.calorietracker.domain.on_boarding.model
 
 sealed class Gender(val name:String){
 

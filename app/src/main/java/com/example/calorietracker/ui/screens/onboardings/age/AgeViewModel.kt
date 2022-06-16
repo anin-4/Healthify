@@ -5,7 +5,7 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.calorietracker.data.datastore.CalorieTrackerDataStore
-import com.example.calorietracker.domain.use_cases.FilterOutDigits
+import com.example.calorietracker.domain.on_boarding.use_cases.FilterOutDigits
 import com.example.calorietracker.utils.UIEvents
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.channels.Channel

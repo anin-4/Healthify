@@ -1,4 +1,4 @@
-package com.example.calorietracker.ui.viewModels
+package com.example.calorietracker.ui.navigation
 
 import androidx.compose.runtime.MutableState
 import androidx.compose.runtime.State

@@ -4,10 +4,10 @@ import android.content.Context
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.*
 import androidx.datastore.preferences.preferencesDataStore
-import com.example.calorietracker.domain.model.ActivityLevel
-import com.example.calorietracker.domain.model.Gender
-import com.example.calorietracker.domain.model.GoalType
-import com.example.calorietracker.domain.model.UserInfo
+import com.example.calorietracker.domain.on_boarding.model.ActivityLevel
+import com.example.calorietracker.domain.on_boarding.model.Gender
+import com.example.calorietracker.domain.on_boarding.model.GoalType
+import com.example.calorietracker.domain.on_boarding.model.UserInfo
 import dagger.hilt.android.qualifiers.ApplicationContext
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.catch

@@ -1,4 +1,4 @@
-package com.example.calorietracker.domain.use_cases
+package com.example.calorietracker.domain.on_boarding.use_cases
 
 class FilterOutDigits {
 

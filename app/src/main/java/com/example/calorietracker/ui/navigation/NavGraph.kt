@@ -14,7 +14,6 @@ import com.example.calorietracker.ui.screens.onboardings.gender.GenderScreen
 import com.example.calorietracker.ui.screens.onboardings.height.HeightScreen
 import com.example.calorietracker.ui.screens.onboardings.nutrient_goal.NutrientGoalScreen
 import com.example.calorietracker.ui.screens.onboardings.weight_choice_screen.WeightChoiceScreen
-import com.example.calorietracker.ui.viewModels.NavigationViewModel
 
 @Composable
 fun SetUpNavGraph(

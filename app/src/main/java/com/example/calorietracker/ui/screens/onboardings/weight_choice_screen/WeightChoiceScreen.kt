@@ -11,15 +11,15 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.calorietracker.domain.model.GoalType
+import com.example.calorietracker.domain.on_boarding.model.GoalType
 import com.example.calorietracker.ui.navigation.Screen
 import com.example.calorietracker.ui.screens.onboardings.SelectableButton
-import com.example.calorietracker.ui.viewModels.NavigationViewModel
+import com.example.calorietracker.ui.navigation.NavigationViewModel
 
 @Composable
 fun WeightChoiceScreen(
     navController: NavController,
-    navViewModel :NavigationViewModel,
+    navViewModel : NavigationViewModel,
     viewModel: WeightChoiceViewModel = hiltViewModel()
 ) {
 

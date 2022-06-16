@@ -12,7 +12,7 @@ import androidx.compose.ui.graphics.Color.Companion.White
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.calorietracker.domain.model.Gender
+import com.example.calorietracker.domain.on_boarding.model.Gender
 import com.example.calorietracker.ui.navigation.Screen
 import com.example.calorietracker.ui.screens.onboardings.SelectableButton
 

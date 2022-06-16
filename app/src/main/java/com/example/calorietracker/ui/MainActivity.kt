@@ -11,7 +11,7 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.example.calorietracker.ui.navigation.SetUpNavGraph
 import com.example.calorietracker.ui.theme.CalorieTrackerTheme
-import com.example.calorietracker.ui.viewModels.NavigationViewModel
+import com.example.calorietracker.ui.navigation.NavigationViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
 
@@ -21,7 +21,7 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
 
-        val navViewModel:NavigationViewModel by viewModels()
+        val navViewModel: NavigationViewModel by viewModels()
 
         setContent {
             CalorieTrackerTheme {

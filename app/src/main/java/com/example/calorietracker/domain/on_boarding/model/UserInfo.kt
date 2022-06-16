@@ -1,4 +1,4 @@
-package com.example.calorietracker.domain.model
+package com.example.calorietracker.domain.on_boarding.model
 
 data class UserInfo(
     val gender: Gender,
