@@ -5,6 +5,8 @@ import androidx.room.Room
 import com.example.calorietracker.data.local.FoodDatabase
 import com.example.calorietracker.data.remote.CalorieApi
 import com.example.calorietracker.data.remote.CalorieApi.Companion.BASE_URL
+import com.example.calorietracker.domain.food_tracker.respository.FoodTrackerRepository
+import com.example.calorietracker.domain.food_tracker.respository.FoodTrackerRepositoryImpl
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,5 +38,14 @@ object DataModule {
             FoodDatabase::class.java,
             "food_db"
         ).build()
+    }
+
+    @Singleton
+    @Provides
+    fun provideTrackerFoodRepository(
+        api: CalorieApi,
+        foodDatabase: FoodDatabase
+    ):FoodTrackerRepository{
+        return FoodTrackerRepositoryImpl(api,foodDatabase)
     }
 }
