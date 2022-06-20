@@ -1,4 +1,4 @@
-package com.example.calorietracker.ui.screens.onboardings.age
+package com.example.calorietracker.ui.screens.onboardings.save_weight
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.Button
@@ -18,11 +18,10 @@ import com.example.calorietracker.utils.UIEvents
 import kotlinx.coroutines.flow.collect
 
 @Composable
-fun AgeScreen(
-    navController: NavController,
-    viewModel: AgeViewModel = hiltViewModel(),
-    scaffoldState: ScaffoldState
-
+fun SaveWeightScreen(
+    viewModel:SaveWeightViewModel = hiltViewModel(),
+    scaffoldState:ScaffoldState,
+    navController:NavController
 ) {
 
     LaunchedEffect(key1 = true) {
@@ -49,31 +48,31 @@ fun AgeScreen(
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
-            
-            Text(text = "What is your age?",
+
+            Text(text = "What is your Weight?",
                 style = MaterialTheme.typography.h1,
-                
-            )
-            
+
+                )
+
             Spacer(modifier = Modifier.height(12.dp))
-            
-            
+
+
             UnitTextField(
-                value = viewModel.age.value,
+                value = viewModel.weight.value,
                 onValueChange = {
-                    viewModel.onAgeChange(it)
+                    viewModel.onWeightChange(it)
                 },
-                unit = "yrs" )
+                unit = "Kg" )
 
 
 
         }
         Button(
             onClick ={
-            viewModel.saveToPreference()
-                if(viewModel.age.value!="")
-            navController.navigate(Screen.WeightScreen.route)
-                        },
+                viewModel.saveToPreference()
+                if(viewModel.weight.value!="")
+                    navController.navigate(Screen.HeightScreen.route)
+            },
             modifier = Modifier
                 .align(Alignment.BottomEnd)
                 .padding(16.dp)

@@ -100,18 +100,16 @@ class CalorieTrackerDataStore @Inject constructor(
         }
     }
 
-    fun readUserInfo():Flow<UserInfo>{
-        return dataStore.data
-            .map { preferences ->
+    val  readUserInfo:Flow<UserInfo> = dataStore.data.map { preferences ->
                 val age = preferences[PreferenceKeys.KEY_AGE]?:-1
-                val genderString = preferences[PreferenceKeys.KEY_GENDER]?:null
+                val genderString = preferences[PreferenceKeys.KEY_GENDER]
                 val height = preferences[PreferenceKeys.KEY_HEIGHT]?:-1
                 val weight = preferences[PreferenceKeys.KEY_WEIGHT]?:-1
-                val goalTypeString = preferences[PreferenceKeys.KEY_GOAL_TYPE]?:null
+                val goalTypeString = preferences[PreferenceKeys.KEY_GOAL_TYPE]
                 val carbRatio = preferences[PreferenceKeys.KEY_CARB_RATIO]?:-1f
                 val proteinRatio = preferences[PreferenceKeys.KEY_PROTEIN_RATIO]?:-1f
                 val fatRatio = preferences[PreferenceKeys.KEY_FAT_RATIO]?:-1f
-                val activityLevelString = preferences[PreferenceKeys.KEY_ACTIVITY_LEVEL]?:null
+                val activityLevelString = preferences[PreferenceKeys.KEY_ACTIVITY_LEVEL]
                 UserInfo(
                     age = age,
                     gender = Gender.fromString(genderString?: "male"),
@@ -124,7 +122,7 @@ class CalorieTrackerDataStore @Inject constructor(
                     fatRatio = fatRatio
                 )
             }
-    }
+
 
 
 

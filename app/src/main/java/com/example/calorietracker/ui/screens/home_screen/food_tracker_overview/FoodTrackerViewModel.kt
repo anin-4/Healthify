@@ -7,9 +7,11 @@ import androidx.lifecycle.viewModelScope
 import com.example.calorietracker.domain.food_tracker.use_cases.TrackFoodUseCases
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Job
+import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.launch
 import javax.inject.Inject
+
 
 
 @HiltViewModel
@@ -21,6 +23,11 @@ class FoodTrackerViewModel @Inject constructor(
     private set
 
     private var getFoodsForDateJob: Job?=null
+
+    init {
+        refreshFood()
+
+    }
 
     fun onEvent(event:TrackerOverViewEvents){
         when(event){
@@ -59,11 +66,9 @@ class FoodTrackerViewModel @Inject constructor(
 
     private fun refreshFood() {
         getFoodsForDateJob?.cancel()
-
-        getFoodsForDateJob = viewModelScope.launch {
-            useCases.getFoodFromDate(state.value.date)
+        getFoodsForDateJob = useCases.getFoodFromDate(state.value.date)
                 .onEach {
-                   val nutrientResult = useCases.calculateMealNutrients(it)
+                    val nutrientResult = useCases.calculateMealNutrients.getNut(it)
                     state.value = state.value.copy(
                         currentCalorieCount = nutrientResult.totalCalories,
                         currentCarbCount =  nutrientResult.totalCarbs,
@@ -89,9 +94,9 @@ class FoodTrackerViewModel @Inject constructor(
                             )
                         }
                     )
-                }
+                }.launchIn(viewModelScope)
         }
+
     }
 
 
-}

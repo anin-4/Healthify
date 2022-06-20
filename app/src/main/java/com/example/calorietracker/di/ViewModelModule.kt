@@ -19,7 +19,7 @@ object ViewModelModule {
     fun provideTrackFoodUseCases(
         dataStore: CalorieTrackerDataStore,
         repository: FoodTrackerRepository
-    ):TrackFoodUseCases{
+    ): TrackFoodUseCases {
         return TrackFoodUseCases(
             trackFood = TrackFood(repository),
             deleteTrackedFood = DeleteTrackedFood(repository),

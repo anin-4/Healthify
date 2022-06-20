@@ -6,7 +6,6 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.calorietracker.data.datastore.CalorieTrackerDataStore
-import com.example.calorietracker.ui.navigation.Screen
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.launch
@@ -15,11 +14,11 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NavigationViewModel @Inject constructor(
-    private val dataStoreRepository:CalorieTrackerDataStore
+    private val dataStoreRepository:CalorieTrackerDataStore,
 ):ViewModel() {
 
 
-    private var _startScreen:MutableState<String> = mutableStateOf(Screen.FirstPage.route)
+    private var _startScreen:MutableState<String> = mutableStateOf(Screen.Home.route)
     val startScreen: State<String> = _startScreen
 
     init {

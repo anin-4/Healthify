@@ -15,6 +15,7 @@ import com.example.calorietracker.ui.screens.onboardings.age.AgeScreen
 import com.example.calorietracker.ui.screens.onboardings.gender.GenderScreen
 import com.example.calorietracker.ui.screens.onboardings.height.HeightScreen
 import com.example.calorietracker.ui.screens.onboardings.nutrient_goal.NutrientGoalScreen
+import com.example.calorietracker.ui.screens.onboardings.save_weight.SaveWeightScreen
 import com.example.calorietracker.ui.screens.onboardings.weight_choice_screen.WeightChoiceScreen
 import com.example.calorietracker.ui.screens.search_screen.SearchScreen
 
@@ -79,6 +80,10 @@ fun SetUpNavGraph(
                 it.arguments?.getInt("year")?:-1
 
             )
+        }
+
+        composable(route = Screen.WeightScreen.route){
+            SaveWeightScreen(scaffoldState = scaffoldState, navController = navController)
         }
     }
 }

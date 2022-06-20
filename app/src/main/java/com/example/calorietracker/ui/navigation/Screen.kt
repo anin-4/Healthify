@@ -11,6 +11,7 @@ sealed class Screen(val route:String){
     object WeightChoiceScreen:Screen("WeightChoiceScreen")
     object Home:Screen("home")
     object Search:Screen("search")
+    object WeightScreen:Screen("weightScreen")
 
 
 
