@@ -10,6 +10,7 @@ sealed class Screen(val route:String){
     object NutrientChoiceScreen:Screen("nutrientChoiceScreen")
     object WeightChoiceScreen:Screen("WeightChoiceScreen")
     object Home:Screen("home")
+    object Search:Screen("search")
 
 
 
