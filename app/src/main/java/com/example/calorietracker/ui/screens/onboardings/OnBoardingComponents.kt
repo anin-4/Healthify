@@ -31,7 +31,6 @@ fun SelectableButton(
     onClick:()->Unit,
     isSelected:Boolean,
     selectedTextColor: Color,
-    modifier:Modifier = Modifier,
     style:TextStyle = MaterialTheme.typography.button,
     color: Color
     ) {
@@ -78,7 +77,6 @@ fun UnitTextField(
         fontSize = 70.sp
     ),
 ) {
-    val spacing = 16.dp
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.Center

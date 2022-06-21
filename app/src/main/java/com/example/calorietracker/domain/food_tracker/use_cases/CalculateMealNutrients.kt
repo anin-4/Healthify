@@ -14,7 +14,7 @@ class CalculateMealNutrients(
     private val dataStore: CalorieTrackerDataStore
 ) {
 
-    suspend fun getNut(trackedFoods: List<TrackedFood>): Result {
+    suspend operator fun invoke(trackedFoods: List<TrackedFood>): Result {
 
         val allNutrients = trackedFoods
             .groupBy {

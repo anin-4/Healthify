@@ -68,7 +68,7 @@ class FoodTrackerViewModel @Inject constructor(
         getFoodsForDateJob?.cancel()
         getFoodsForDateJob = useCases.getFoodFromDate(state.value.date)
                 .onEach {
-                    val nutrientResult = useCases.calculateMealNutrients.getNut(it)
+                    val nutrientResult = useCases.calculateMealNutrients(it)
                     state.value = state.value.copy(
                         currentCalorieCount = nutrientResult.totalCalories,
                         currentCarbCount =  nutrientResult.totalCarbs,
