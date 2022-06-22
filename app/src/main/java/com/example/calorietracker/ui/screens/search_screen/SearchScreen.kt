@@ -57,11 +57,13 @@ fun SearchScreen(
         Column(
             modifier = Modifier
                 .fillMaxSize()
-                .padding(8.dp)
+                .padding(8.dp),
+            horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = mealType,
-                style = MaterialTheme.typography.h3
+                text = "Add $mealType",
+                style = MaterialTheme.typography.h6,
+
             )
             Spacer(modifier = Modifier.height(16.dp))
             SearchTextField(

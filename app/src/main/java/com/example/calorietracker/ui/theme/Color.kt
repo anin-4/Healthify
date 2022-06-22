@@ -14,3 +14,10 @@ val yellow200 = Color(0xFFffe082)
 val yellow100 = Color(0xFFffffb3)
 val yellow300 = Color(0xFFcaae53)
 val black = Color(0xFF263238)
+
+val black200 = Color(0xFF37474f)
+val black100 = Color(0xFF62727b)
+val black300 = Color(0xFF102027)
+
+
+
