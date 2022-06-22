@@ -2,6 +2,7 @@ package com.example.calorietracker.ui.navigation
 
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
@@ -19,6 +20,7 @@ import com.example.calorietracker.ui.screens.onboardings.save_weight.SaveWeightS
 import com.example.calorietracker.ui.screens.onboardings.weight_choice_screen.WeightChoiceScreen
 import com.example.calorietracker.ui.screens.search_screen.SearchScreen
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun SetUpNavGraph(
     navController: NavHostController,

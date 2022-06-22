@@ -4,6 +4,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.MaterialTheme
@@ -25,6 +26,7 @@ fun AddMealButton(
     Box(
         contentAlignment = Alignment.Center,
         modifier = Modifier
+            .fillMaxWidth()
             .clip(RoundedCornerShape(100.dp))
             .border(
                 width = 2.dp,
@@ -42,7 +44,7 @@ fun AddMealButton(
 
     ) {
         Text(text = "Add $name",
-            style = MaterialTheme.typography.h4,
+            style = MaterialTheme.typography.body1,
             color = color
         )
 

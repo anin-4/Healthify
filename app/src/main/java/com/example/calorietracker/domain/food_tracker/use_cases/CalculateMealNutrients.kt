@@ -20,7 +20,7 @@ class CalculateMealNutrients(
             .groupBy {
                 it.mealType
             }
-            .mapValues { entry ->
+            .mapValues {entry->
                 val type = entry.key
                 val foods = entry.value
                 MealNutrients(

@@ -9,7 +9,9 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 
 
 @Composable
@@ -18,6 +20,8 @@ fun NutrientInfo(
     amount:Int,
     unitText:String,
     name:String,
+    unitTextSize: TextUnit = 14.sp,
+    amountTextSize:TextUnit = 20.sp
     ) {
     
     Column(
@@ -27,7 +31,9 @@ fun NutrientInfo(
 
         UnitDisplay(
             amount = amount,
-            unit = unitText
+            unit = unitText,
+            amountTextSize = amountTextSize,
+            unitTextSize = unitTextSize
         )
 
         Spacer(modifier.height(6.dp))

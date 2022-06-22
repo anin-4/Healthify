@@ -1,5 +1,6 @@
 package com.example.calorietracker.ui.screens.home_screen.food_tracker_overview.components
 
+
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.Canvas
@@ -33,16 +34,13 @@ fun NutrientBarInfo(
 ) {
 
     val completionColor = Color.Green
-
     val angleRatio = remember{
         Animatable(0f)
     }
     
     LaunchedEffect(key1 = value){
         angleRatio.animateTo(
-            targetValue =
-            if (goal>0) (value/goal).toFloat()
-            else 0f,
+            targetValue = if (goal>0) (value.toFloat()/goal.toFloat()) else 0f,
             animationSpec = tween(
                 durationMillis = 200
             )
