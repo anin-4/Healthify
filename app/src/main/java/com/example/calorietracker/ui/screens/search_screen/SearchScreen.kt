@@ -63,6 +63,7 @@ fun SearchScreen(
             Text(
                 text = "Add $mealType",
                 style = MaterialTheme.typography.h6,
+                modifier = Modifier.padding(top = 14.dp)
 
             )
             Spacer(modifier = Modifier.height(16.dp))

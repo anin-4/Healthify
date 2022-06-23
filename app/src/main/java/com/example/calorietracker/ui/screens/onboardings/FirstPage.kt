@@ -20,18 +20,13 @@ fun FirstPageOnBoarding(
 ) {
 
     Column(
-        modifier = Modifier.fillMaxSize(),
+        modifier = Modifier.fillMaxSize().fillMaxWidth(),
         verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
+        horizontalAlignment = Alignment.CenterHorizontally,
+
     ) {
         Text(
-            text = "Hello! Let us find out more about you!",
-            modifier = Modifier
-                .fillMaxWidth()
-                .padding(
-                    horizontal = 10.dp
-                )
-            ,
+            text = "Lets get started!",
             style = MaterialTheme.typography.h1
         )
         Spacer(modifier = Modifier.height(15.dp))

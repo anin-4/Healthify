@@ -50,36 +50,69 @@ fun NutrientGoalScreen(
         ) {
             Text(
                 text = "what is your nutrient goal?",
-                style = MaterialTheme.typography.h2
+                style = MaterialTheme.typography.h5
             )
             Spacer(modifier = Modifier.height(7.dp))
 
-            UnitTextField(
-                value = viewModel.nutrient.value.carbRatio,
-                onValueChange = {
-                    viewModel.onEnter(NutrientGoalEvent.OnCarbEnter(it))
-                },
-                unit = "%"
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ){
+                Text(text = "Carbs", style = MaterialTheme.typography.h5)
+
+                Spacer(Modifier.width(10.dp))
+
+                UnitTextField(
+                    value = viewModel.nutrient.value.carbRatio,
+                    onValueChange = {
+                        viewModel.onEnter(NutrientGoalEvent.OnCarbEnter(it))
+                    },
+                    unit = "%"
+                )
+            }
+
+
             Spacer(modifier = Modifier.height(7.dp))
 
-            UnitTextField(
-                value = viewModel.nutrient.value.proteinRatio,
-                onValueChange = {
-                    viewModel.onEnter(NutrientGoalEvent.OnProteinEnter(it))
-                },
-                unit ="%"
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ){
+
+                Text(text = "Protein", style = MaterialTheme.typography.h5)
+
+                Spacer(Modifier.width(10.dp))
+
+                UnitTextField(
+                    value = viewModel.nutrient.value.proteinRatio,
+                    onValueChange = {
+                        viewModel.onEnter(NutrientGoalEvent.OnProteinEnter(it))
+                    },
+                    unit ="%"
+                )
+
+            }
+
+
 
             Spacer(modifier = Modifier.height(7.dp))
 
-            UnitTextField(
-                value = viewModel.nutrient.value.fatRatio,
-                onValueChange = {
-                    viewModel.onEnter(NutrientGoalEvent.OnFatEnter(it))
-                },
-                unit = "%"
-            )
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ){
+                Text(text = "Fat", style = MaterialTheme.typography.h5)
+
+                Spacer(Modifier.width(10.dp))
+
+
+                UnitTextField(
+                    value = viewModel.nutrient.value.fatRatio,
+                    onValueChange = {
+                        viewModel.onEnter(NutrientGoalEvent.OnFatEnter(it))
+                    },
+                    unit = "%"
+                )
+            }
+
+
         }
         Button(
             onClick = {

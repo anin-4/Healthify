@@ -24,6 +24,7 @@ fun GenderScreen(
     Box(
         modifier = Modifier.fillMaxSize(),
         contentAlignment = Alignment.Center
+
     ){
     Column(
         modifier = Modifier.fillMaxSize(),

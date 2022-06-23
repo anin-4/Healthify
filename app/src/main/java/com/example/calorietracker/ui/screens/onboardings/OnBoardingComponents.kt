@@ -19,8 +19,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.text.BasicTextField
+import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.layout.LastBaseline
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
+import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.sp
 
@@ -56,7 +60,7 @@ fun SelectableButton(
     ) {
         Text(text = text,
         style = style,
-            color = if (isSelected) selectedTextColor else Color.Black
+            color = if (isSelected) selectedTextColor else MaterialTheme.colors.onPrimary
         )
 
     }
@@ -66,6 +70,7 @@ fun SelectableButton(
 
 
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun UnitTextField(
     value: String,
@@ -77,6 +82,7 @@ fun UnitTextField(
         fontSize = 70.sp
     ),
 ) {
+    val keyboardController = LocalSoftwareKeyboardController.current
     Row(
         modifier = modifier,
         horizontalArrangement = Arrangement.Center
@@ -88,6 +94,13 @@ fun UnitTextField(
             keyboardOptions = KeyboardOptions(
                 keyboardType = KeyboardType.Number
             ),
+            keyboardActions = KeyboardActions(
+                onDone = {
+                    defaultKeyboardAction(ImeAction.Done)
+                    keyboardController?.hide()
+
+                },
+                ),
             singleLine = true,
             modifier = Modifier
                 .width(IntrinsicSize.Min)

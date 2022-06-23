@@ -1,6 +1,6 @@
 package com.example.calorietracker.ui.screens.search_screen.components
 
-import com.example.calorietracker.R
+
 import androidx.compose.animation.AnimatedVisibility
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -18,13 +18,14 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment.Companion.CenterVertically
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
-import androidx.compose.ui.graphics.ImageBitmap
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.layout.LastBaseline
-import androidx.compose.ui.res.imageResource
+import androidx.compose.ui.platform.LocalSoftwareKeyboardController
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
@@ -34,6 +35,7 @@ import com.example.calorietracker.ui.screens.search_screen.TrackableFoodState
 import com.skydoves.landscapist.glide.GlideImage
 
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun TrackableFoodItem(
     trackableFoodState: TrackableFoodState,
@@ -44,6 +46,8 @@ fun TrackableFoodItem(
     onNavigate:()->Unit
 ) {
     val trackableFood = trackableFoodState.food
+
+    val keyboardController = LocalSoftwareKeyboardController.current
 
     Column(
         modifier = modifier
@@ -133,6 +137,7 @@ fun TrackableFoodItem(
                 Row {
                     BasicTextField(
                         value = trackableFoodState.amount,
+                        textStyle = MaterialTheme.typography.body1,
                         onValueChange = onAmountChange,
                         keyboardOptions = KeyboardOptions(
                             imeAction = if(trackableFoodState.amount.isNotBlank()) {
@@ -143,6 +148,8 @@ fun TrackableFoodItem(
                             onDone = {
                                 onTrack()
                                 defaultKeyboardAction(ImeAction.Done)
+                                keyboardController?.hide()
+                                onNavigate()
                             }
                         ),
                         singleLine = true,
@@ -153,7 +160,9 @@ fun TrackableFoodItem(
                                 color = MaterialTheme.colors.onPrimary
                             )
                             .alignBy(LastBaseline)
+                            .background(Color.LightGray)
                             .padding(8.dp)
+
                     )
                     Spacer(modifier = Modifier.width(4.dp))
                     Text(
@@ -165,6 +174,7 @@ fun TrackableFoodItem(
                 IconButton(
                     onClick = {
                         onTrack()
+                        keyboardController?.hide()
                         onNavigate()
 
                               },
