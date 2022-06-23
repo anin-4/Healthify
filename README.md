@@ -29,7 +29,8 @@ Clone the project from android studio after enabling VCS, and click on the run b
     
 ## Demo
 
-![](calorie-Tracker-app.gif)
+
+![calorieTrackerapp2](https://user-images.githubusercontent.com/66209574/175296175-4bfdc738-84c1-497e-9963-cbf6a63c5c16.gif)
 
 
 ## Credit
