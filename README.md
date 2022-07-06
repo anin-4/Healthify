@@ -1,5 +1,5 @@
 
-# Healtify - Calorie Tracker App
+# Healthify - Calorie Tracker App
 
 Healtify is a native android app which allows the user to track the amout
 of Calories they are consuming. It not only tracks the calories but also shows how
